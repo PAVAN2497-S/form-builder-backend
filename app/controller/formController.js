@@ -1,7 +1,6 @@
-// controllers/formController.js
+
 const Form = require('../modal/Form');
 
-// Create a new form
 const createForm = async (req, res) => {
     try {
         const { formTitle, formFields } = req.body;
@@ -19,7 +18,6 @@ const createForm = async (req, res) => {
     }
 };
 
-// Get all forms
 const getForms = async (req, res) => {
     try {
         const forms = await Form.find();
@@ -29,7 +27,6 @@ const getForms = async (req, res) => {
     }
 };
 
-// Get a single form by ID
 const getFormById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -42,7 +39,6 @@ const getFormById = async (req, res) => {
     }
 };
 
-// Update a form by ID
 const updateForm = async (req, res) => {
     try {
         const form = await Form.findByIdAndUpdate(req.params.id, req.body, {
@@ -56,7 +52,6 @@ const updateForm = async (req, res) => {
     }
 };
 
-// Delete a form by ID
 const deleteForm = async (req, res) => {
     try {
         const form = await Form.findByIdAndDelete(req.params.id);
