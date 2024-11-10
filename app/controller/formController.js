@@ -32,11 +32,13 @@ const getForms = async (req, res) => {
 // Get a single form by ID
 const getFormById = async (req, res) => {
     try {
-        const form = await Form.findById(req.params.id);
-        if (!form) return res.status(404).json({ error: "Form not found" });
-        res.status(200).json(form);
+        const { id } = req.params;
+        const updatedForm = await Form.findByIdAndUpdate(id, req.body, {
+            new: true,
+        });
+        res.status(200).json(updatedForm);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ message: 'Error updating form', error });
     }
 };
 
