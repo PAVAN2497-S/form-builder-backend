@@ -16,7 +16,6 @@ app.put('/forms/:id', updateForm);
 app.delete('/forms/:id', deleteForm);
 
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`);
+app.listen(5000, () => {
+    console.log('Server is running ');
 });
